@@ -7,6 +7,7 @@
 @endsection
 
 @section('contenido')
+<a href="{{route('noticias.index')}}" class="btn btn-primary btn-sm" style="margin-bottom: 20px"><i class="fas fa-arrow-left"></i> Volver a la lista de noticias</a>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
