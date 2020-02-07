@@ -25,3 +25,8 @@ Route::resource('/admin/noticias',
 
 Auth::routes(['register' => false]);
 
+Route::resource('user', 'UserController');
+
+Route::get('/register', 'RegistrationController@create');
+Route::post('register', 'RegistrationController@store');
+
