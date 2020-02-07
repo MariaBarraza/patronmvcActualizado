@@ -10,7 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
+    /**f
      * The attributes that are mass assignable.
      *
      * @var array
@@ -36,8 +36,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = bcrypt($password);
-    }
+
 }
