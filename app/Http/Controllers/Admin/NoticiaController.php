@@ -55,17 +55,21 @@ class NoticiaController extends Controller
         $noticia = new Noticia();
         $noticia->titulo = $request->input('txtTitulo');
         $noticia->cuerpo = $request->input('txtCuerpo');
+        if($request->hasFile('imgPortada'))
+        {
+           $archivoPortada = $request->file("imgPortada");
+           $rutaArchivo = $archivoPortada->store('portadas');
+           $noticia->portada = $rutaArchivo;
+        }
 
         if ($noticia->save()) {
 
             //Si pude guardar la noticia
             return redirect()->route('noticias.index')->with('exito', '¡La noticia ha sido guardada con éxito!');
-            
-
         }
 
         //Aqui no se pudo guardar
-        return redirect()->route('noticias.index')->with('error', 'No se pudo agregar la noticia, llama al 911');
+        return redirect()->route('noticias.index')->with('error', 'No se pudo agregar la noticia');
 
     }
 
@@ -130,11 +134,11 @@ class NoticiaController extends Controller
             $noticia->cuerpo = $request->input('txtCuerpo');
             if($noticia->save()){
 
-                return redirect()->route('noticias.edit',$id)->with('exito','¡La noticia se ACTUALIZÓ exitosamente!');
+                return redirect()->route('noticias.edit',$id)->with('exito','¡La noticia se actualizo exitosamente!');
                 
             }
             
-            return redirect()->route('noticias.edit',$id)->with('error','La noticia NO se pudo actualizar');
+            return redirect()->route('noticias.edit',$id)->with('error','La noticia no se pudo actualizar');
             
         }
 
