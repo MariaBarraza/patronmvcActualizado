@@ -54,6 +54,19 @@
                             <input name= "txtTitulo" type="text" value="{{$noticia->titulo}}" class="form-control" />
     
                         </div>
+
+                        <div class="form-group">
+
+                            <label for="">Imagen de portada</label>
+                            <input type="file" name="imgPortada" class="form-control" />
+    
+                        </div>
+                        @if($noticia->portada)
+                        {
+                            <img style="width: 50px;height: auto;" src="/storage/portadas/{{$noticia->portada}}"/>
+                        }@else 
+                        <p>No hay Imagen</p>
+                        @endif
                         <div class="form-group">
 
                             <label >Cuerpo</label>
