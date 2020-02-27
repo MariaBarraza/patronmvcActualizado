@@ -43,7 +43,7 @@
                     
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('noticias.update',$noticia->id)}}">
+                    <form method="POST" enctype="multipart/form-data"  action="{{route('noticias.update',$noticia->id)}}">
 
                             @csrf
                             @method('PUT')
@@ -63,7 +63,9 @@
                         </div>
                         @if($noticia->portada)
                         {
+                        <a href="/storage/portadas/{{$noticia->portada}}" target="_blank">
                             <img style="width: 50px;height: auto;" src="/storage/portadas/{{$noticia->portada}}"/>
+                        </a>
                         }@else 
                         <p>No hay Imagen</p>
                         @endif
