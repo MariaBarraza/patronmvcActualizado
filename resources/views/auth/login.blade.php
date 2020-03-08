@@ -21,7 +21,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <b>LOGIN</b>
+    <b>Noticias</b>
   </div>
   <!-- /.login-logo -->
   <div class="card">

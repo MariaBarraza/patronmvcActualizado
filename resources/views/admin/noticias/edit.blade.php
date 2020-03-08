@@ -43,7 +43,7 @@
                     
                 </div>
                 <div class="card-body">
-                    <form method="POST" enctype="multipart/form-data"  action="{{route('noticias.update',$noticia->id)}}">
+                    <form method="POST" enctype="multipart/form-data" action="{{route('noticias.update',$noticia->id)}}">
 
                             @csrf
                             @method('PUT')
@@ -55,20 +55,24 @@
     
                         </div>
 
-                        <div class="form-group">
-
-                            <label for="">Imagen de portada</label>
+                        <div class="form-group" >
+                            <label for="">Imagen de Portada</label>
                             <input type="file" name="imgPortada" class="form-control" />
-    
+                        
                         </div>
+
                         @if($noticia->portada)
-                        {
-                        <a href="/storage/portadas/{{$noticia->portada}}" target="_blank">
-                            <img style="width: 50px;height: auto;" src="/storage/portadas/{{$noticia->portada}}"/>
-                        </a>
-                        }@else 
-                        <p>No hay Imagen</p>
+
+                            <a href="/storage/portadas/{{$noticia->portada}}" target="_blank">
+                                <img style="width: 50px; heigh: auto;" src="/storage/portadas/{{$noticia->portada}}" />
+                            </a>
+
+                        @else
+                        
+                            <p>No hay imagen cargada</p>
+
                         @endif
+
                         <div class="form-group">
 
                             <label >Cuerpo</label>
